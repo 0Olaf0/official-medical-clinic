@@ -1,15 +1,12 @@
 package com.github.Olaf0.officialmedicalclinic.repository;
 
+
 import com.github.Olaf0.officialmedicalclinic.model.Patient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-@RequestMapping
-public class PatientRepository {
-    private List<Patient> patientList = new ArrayList();
+import java.util.Optional;
 
-    public List<Patient> getAllPatients() {
-        return patientList;
-    }
+public interface PatientRepository extends JpaRepository<Patient,Long> {
+
+    Optional<Patient> findByEmail(String email);
 }

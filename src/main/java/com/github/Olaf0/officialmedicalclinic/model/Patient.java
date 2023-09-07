@@ -26,5 +26,14 @@ public class Patient {
     private String phoneNumber;
     private LocalDate birthday;
 
+    public void update(Patient editInfo) {
+        this.setEmail(editInfo.getEmail());
+        this.setPassword(editInfo.getPassword());
+        this.setFirstName(editInfo.getFirstName());
+        this.setLastName(editInfo.getLastName());
+        this.setBirthday(editInfo.getBirthday());
+        this.setPhoneNumber(editInfo.getPhoneNumber());
+    }
+
 }
 
