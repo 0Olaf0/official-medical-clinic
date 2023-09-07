@@ -35,6 +35,11 @@ private PatientService patientService;
     public Patient editPatientByEmail(@PathVariable String email,@RequestBody Patient editPatient) {
     return patientService.editPatientByEmail(email,editPatient);
 }
+@PatchMapping("/{email}")
+    public Patient patientWithNewPassword(@PathVariable String email,@RequestBody String password) {
+    return patientService.patientWithNewPassword(email,password);
+}
+
 
 
 

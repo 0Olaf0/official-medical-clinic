@@ -50,6 +50,15 @@ public class PatientService {
        patient.update(editPatient);
        return patientRepository.save(patient);
     }
+    public Patient patientWithNewPassword(String email,String password) {
+       Patient patient = patientRepository.findByEmail(email)
+               .orElseThrow(() -> new IllegalArgumentException("Not found"));
+       if (password == null) {
+           throw new IllegalArgumentException("Not possible");
+       }
+       patient.setPassword(password);
+       return patientRepository.save(patient);
+    }
 
 
 
