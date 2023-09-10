@@ -20,6 +20,9 @@ public class PatientService {
        return patientRepository.findByEmail(email);
     }
     public Patient addNewPatient(Patient patient) {
+       if (patientRepository.findByEmail(patient.getEmail()).isPresent()) {
+           throw new IllegalArgumentException("Pacjent o emailu:" + patient.getEmail() + "już istnieje w systemie");
+       }
        return patientRepository.save(patient);
     }
     public Patient deletePatientByEmail(String email) {
